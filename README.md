@@ -1,4 +1,4 @@
-# wisechameleon-app
+# picInsight-app
 React-Native app for WiseChameleon
 
 ### App Requirements:
