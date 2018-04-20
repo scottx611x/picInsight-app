@@ -1,5 +1,5 @@
 # picInsight-app
-React-Native app for WiseChameleon
+React-Native app that allows one to classify images
 
 ### App Requirements:
 - Must use [`redux`](https://github.com/reactjs/react-redux)
