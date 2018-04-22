@@ -23,4 +23,8 @@ React-Native app that allows one to classify images
 	- https://facebook.github.io/jest/docs/en/tutorial-react-native.html
 - [ ] Update: https://github.com/scottx611x/final-project-scottx611x
 - [ ] What should this app even do?
-- 
+
+
+### Deployment:
+- picInsight require some external infrastructure who's deployment in handled by: [terraform](https://www.terraform.io)
+- Follow [these instructions]() to get started with infrastructure deployment
