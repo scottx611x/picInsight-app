@@ -13,7 +13,7 @@ React-Native app that allows one to classify images
 - Must have at least one tab navigator
 - Must be at least as large in scope as the previous projects
 
-## TO-DO:
+### TO-DO:
 - [ ] CI/CD
 	- https://medium.com/react-native-training/setup-continuous-integration-with-react-native-50ad2f6145f4
 	- https://jtway.co/the-simplest-way-to-automate-delivery-of-your-react-native-application-f37f2c71eb1d
@@ -23,4 +23,8 @@ React-Native app that allows one to classify images
 	- https://facebook.github.io/jest/docs/en/tutorial-react-native.html
 - [ ] Update: https://github.com/scottx611x/final-project-scottx611x
 - [ ] What should this app even do?
-- 
+
+
+### Deployment:
+- picInsight require some external infrastructure who's deployment in handled by: [terraform](https://www.terraform.io)
+- Follow [these instructions]() to get started with infrastructure deployment
