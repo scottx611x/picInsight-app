@@ -1,4 +1,4 @@
-# picInsight-app
+# picInsight-app [![Build Status](https://travis-ci.org/scottx611x/picInsight-app.svg?branch=master)](https://travis-ci.org/scottx611x/picInsight-app)
 React-Native app that allows one to classify images
 
 ### App Requirements:
