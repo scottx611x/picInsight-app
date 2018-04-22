@@ -27,4 +27,4 @@ React-Native app that allows one to classify images
 
 ### Deployment:
 - picInsight require some external infrastructure who's deployment in handled by: [terraform](https://www.terraform.io)
-- Follow [these instructions]() to get started with infrastructure deployment
+- Follow [these instructions](https://github.com/scottx611x/picInsight-app/blob/master/deployment/terraform/README.md) to get started with infrastructure deployment
