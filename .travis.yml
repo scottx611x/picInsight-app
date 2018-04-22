@@ -10,4 +10,4 @@ install:
 
 script:
   - cd deployment/terraform/
-  - terraform validate
+  - terraform init && terraform validate
