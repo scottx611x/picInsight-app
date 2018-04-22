@@ -1,10 +1,9 @@
 // Zip up python code & reqs into what will get run in the lambda
 data "archive_file" "lambda_zip" {
     type        = "zip"
-    source_dir  = "../image-classifier"
+    source_dir  = "../picinsight-lambda"
     output_path = "lambda.zip"
 }
-
 
 // Lambda function that will do the heavy lifting for our picInsight app
 resource "aws_lambda_function" "picInsight_Rekognition" {
