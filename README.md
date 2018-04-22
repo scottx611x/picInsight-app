@@ -13,7 +13,7 @@ React-Native app that allows one to classify images
 - Must have at least one tab navigator
 - Must be at least as large in scope as the previous projects
 
-## TO-DO:
+### TO-DO:
 - [ ] CI/CD
 	- https://medium.com/react-native-training/setup-continuous-integration-with-react-native-50ad2f6145f4
 	- https://jtway.co/the-simplest-way-to-automate-delivery-of-your-react-native-application-f37f2c71eb1d
