@@ -15,7 +15,7 @@ module "iam" {
 
 module "lambda" {
   source  = "./modules/lambda"
-  picInsight_user_arn = "${module.iam.picInsight_user_arn}"
-  upload_bucket = "${module.s3.upload_bucket}"
+  picInsight_iam_role_arn = "${module.iam.picInsight_iam_role_arn}"
+  upload_bucket_id = "${module.s3.upload_bucket_id}"
   upload_bucket_arn = "${module.s3.upload_bucket_arn}"
 }
