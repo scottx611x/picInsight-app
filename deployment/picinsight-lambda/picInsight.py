@@ -1,7 +1,6 @@
 from __future__ import print_function
 
 import boto3
-import urllib
 
 print('Loading function')
 
@@ -11,17 +10,25 @@ s3 = boto3.client('s3')
 def lambda_handler(event, context):
     # Get the object from the event and show its content type
     bucket = event['Records'][0]['s3']['bucket']['name']
-    key = urllib.unquote_plus(event['Records'][0]['s3'][
-                              'object']['key'].encode('utf8'))
+    print(bucket)
+    key = event['Records'][0]['s3']['object']['key']
+    print(key)
+    detect_labels(bucket, key)
 
-    try:
-        response = s3.get_object(Bucket=bucket, Key=key)
-        print("CONTENT TYPE: " + response['ContentType'])
-        return response['ContentType']
-    except Exception as e:
-        print(e)
-        print(
-            'Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(
-                key,
-                bucket))
-        raise e
+
+def detect_labels(bucket, key, max_labels=5,
+                  min_confidence=95, region="us-east-1"):
+    rekognition = boto3.client("rekognition", region)
+    response = rekognition.detect_labels(
+        Image={
+            "S3Object": {
+                "Bucket": bucket,
+                "Name": key,
+            }
+        },
+        MaxLabels=max_labels,
+        MinConfidence=min_confidence,
+    )
+    print(response["Labels"])
+    for label in response["Labels"]:
+        print("{Name} - {Confidence}%".format(**label))
