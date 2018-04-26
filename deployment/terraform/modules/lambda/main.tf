@@ -1,7 +1,7 @@
 // Zip up python code & reqs into what will get run in the lambda
 data "archive_file" "lambda_zip" {
     type        = "zip"
-    source_dir  = "../picinsight-lambda"
+    source_dir  = "${var.lambda_dir}"
     output_path = "lambda.zip"
 }
 
@@ -9,7 +9,7 @@ data "archive_file" "lambda_zip" {
 resource "aws_lambda_function" "picInsight_Rekognition" {
   filename         = "${data.archive_file.lambda_zip.output_path}"
   function_name    = "picinsight_upload_handler"
-  role             = "${var.picInsight_user_arn}"
+  role             = "${var.picInsight_iam_role_arn}"
   handler          = "picInsight.lambda_handler"
   source_code_hash = "${base64sha256(file(data.archive_file.lambda_zip.output_path))}"
   runtime          = "python3.6"
@@ -17,7 +17,7 @@ resource "aws_lambda_function" "picInsight_Rekognition" {
 
 // Trigger Lambda function invocation when our upload bucket gets a new object
 resource "aws_s3_bucket_notification" "upload_bucket_trigger" {
-  bucket = "${var.upload_bucket}"
+  bucket = "${var.upload_bucket_id}"
 
   lambda_function {
     lambda_function_arn = "${aws_lambda_function.picInsight_Rekognition.arn}"
