@@ -1,5 +1,5 @@
-resource "aws_iam_role" "picInsight_user" {
-  name = "picInsight-user"
+resource "aws_iam_role" "picInsight_iam_role" {
+  name = "picInsight-iam-role"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -19,6 +19,46 @@ resource "aws_iam_role" "picInsight_user" {
       },
       "Effect": "Allow",
       "Sid": "AllowS3Access"
+    },
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "rekognition.amazonaws.com"
+      },
+      "Effect": "Allow",
+      "Sid": "AllowRekognitionAccess"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy" "picInsight_iam_role_policy" {
+  name = "picInsight-iam-role-policy"
+  role = "${aws_iam_role.picInsight_iam_role.id}"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "s3:PutObject", "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "${var.processed_bucket_arn}", 
+        "${var.processed_bucket_arn}/*",
+        "${var.upload_bucket_arn}", 
+        "${var.upload_bucket_arn}/*"
+      ]
+    },
+    {
+      "Action": [
+        "rekognition:DetectLabels"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
     }
   ]
 }
