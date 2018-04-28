@@ -13,6 +13,7 @@ resource "aws_lambda_function" "picInsight_Rekognition" {
   handler          = "picInsight.lambda_handler"
   source_code_hash = "${base64sha256(file(data.archive_file.lambda_zip.output_path))}"
   runtime          = "python3.6"
+  timeout          = 10
 }
 
 // Trigger Lambda function invocation when our upload bucket gets a new object
