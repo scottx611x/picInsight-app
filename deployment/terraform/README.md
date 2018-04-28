@@ -7,6 +7,7 @@ Sets up infrastructure necessary for picInsight app.
   - Upload bucket
   - Processed bucket
 - Lambda function
+  - S3 bucket upload Lambda trigger
 - IAM role
   - IAM Policy
 
@@ -15,6 +16,7 @@ Sets up infrastructure necessary for picInsight app.
 
 ## Getting started
 ```bash
+$ cd picInsight-app/deployment/terraform/
 $ terraform init
 $ terraform apply 
 ```
