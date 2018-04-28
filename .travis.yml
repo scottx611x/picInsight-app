@@ -14,7 +14,7 @@ script:
   - cd deployment/terraform/
   - terraform init && terraform validate
   - cd ../picinsight-lambda
-  - coverage run python tests.py
+  - coverage run tests.py
 
 after_success:
   - codecov
