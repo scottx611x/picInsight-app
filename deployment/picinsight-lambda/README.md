@@ -1,4 +1,5 @@
-# image-classifier:
+# picinsight-lambda:
 
-Lambda function that gets triggered on uploads to s3, calls the Rekognition api to get image information, draws on top of the existing image (bounding boxes?) and then outputs the processed image into a new bucket for the app to be able to view
+`picInsight.py` is representitive of an AWS Lambda function that gets triggered on new image uploads to our `pic-insight-upload` S3 bucket, leverages the Rekognition API to get image information, and then outputs said image info into a new S3 bucket (`pic-insight-processed`) for the app to be able to digest later.
 
+<img width="1249" alt="screen shot 2018-04-28 at 10 40 47 am" src="https://user-images.githubusercontent.com/5629547/39397644-e88b8d08-4ad0-11e8-8bfb-17d4938a165d.png">
