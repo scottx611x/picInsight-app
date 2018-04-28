@@ -5,11 +5,10 @@ import json
 
 
 class RekognitionAggregator(object):
+    s3_client = boto3.client('s3')
+    rekognition_client = boto3.client("rekognition", "us-east-1")
 
-    def __init__(self, s3_event, region="us-east-1"):
-        self.s3_client = boto3.client('s3')
-        self.rekognition_client = boto3.client("rekognition", region)
-
+    def __init__(self, s3_event):
         uploaded_object_key = s3_event['object']['key']
         self.uploaded_image = {
             "S3Object": {
@@ -19,17 +18,18 @@ class RekognitionAggregator(object):
         }
         self.processed_bucket = "pic-insight-processed"
         self.result_object_key = "{}-results.json".format(uploaded_object_key)
-        
+
         self.image_info = self._get_image_info()
 
-    def upload_results(self):
-        results = bytes(
-            json.dumps(self.image_info), 
+    def _results_to_bytes(self):
+        return bytes(
+            json.dumps(self.image_info),
             'utf-8'
         )
+    def upload_results(self):
         self.s3_client.put_object(
             Key=self.result_object_key,
-            Body=results,
+            Body=self._results_to_bytes(),
             Bucket=self.processed_bucket
         )
 
@@ -57,7 +57,8 @@ class RekognitionAggregator(object):
 
     def _recognize_celebrities(self):
         return self.rekognition_client.recognize_celebrities(
-            Image=self.uploaded_image)
+            Image=self.uploaded_image
+        )
 
 
 def lambda_handler(event, context):
