@@ -26,6 +26,7 @@ class RekognitionAggregator(object):
             json.dumps(self.image_info),
             'utf-8'
         )
+
     def upload_results(self):
         self.s3_client.put_object(
             Key=self.result_object_key,
@@ -64,4 +65,3 @@ class RekognitionAggregator(object):
 def lambda_handler(event, context):
     s3_event = event['Records'][0]['s3']
     RekognitionAggregator(s3_event).upload_results()
-

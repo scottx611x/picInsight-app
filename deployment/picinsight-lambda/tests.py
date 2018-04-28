@@ -1,7 +1,7 @@
 import unittest
 import mock
 
-from picInsight import RekognitionAggregator
+from picInsight import RekognitionAggregator, lambda_handler
 
 
 class MockRekognitonClient(object):
@@ -42,28 +42,39 @@ class RekognitionAggregatorTests(unittest.TestCase):
         self.rekognition_mock.start()
         self.s3_mock.start()
 
-        s3_event = {
+        self.s3_event = {
             "object": {"key": "test.jpg"},
             "bucket": {"name": "test-upload"}
         }
 
         with mock.patch("boto3.client"):
-        	self.r_aggregator = RekognitionAggregator(s3_event)
+            self.r_aggregator = RekognitionAggregator(self.s3_event)
 
     def tearDown(self):
         mock.patch.stopall()
 
     def test_upload_results(self):
-    	self.r_aggregator.upload_results()
+        self.r_aggregator.upload_results()
 
-    	self.assertEqual(
-    		self.r_aggregator.image_info,
-			{
-				'celebrities': {'CelebrityFaces': []}, 
-				'labels': {'Labels': []}, 
-				'faces': {'FaceDetails': []}
-			}
-    	)
+        self.assertEqual(
+            self.r_aggregator.image_info,
+            {
+                'celebrities': {'CelebrityFaces': []},
+                'labels': {'Labels': []},
+                'faces': {'FaceDetails': []}
+            }
+        )
+
+    def test_lambda_handler(self):
+        test_event = {
+            "Records": [
+                {
+                    "s3": self.s3_event
+                }
+            ]
+        }
+        lambda_handler(test_event, None)
+
 
 if __name__ == '__main__':
     unittest.main()
