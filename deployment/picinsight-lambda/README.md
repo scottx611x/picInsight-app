@@ -1,4 +1,4 @@
-# picinsight-lambda:
+# picinsight-lambda: [![codecov](https://codecov.io/gh/scottx611x/picInsight-app/branch/master/graph/badge.svg)](https://codecov.io/gh/scottx611x/picInsight-app)
 
 `picInsight.py` is representitive of an AWS Lambda function that gets triggered on new image uploads to our `pic-insight-upload` S3 bucket, leverages the Rekognition API to get image information, and then outputs said image info into a new S3 bucket (`pic-insight-processed`) for the app to be able to digest later.
 
