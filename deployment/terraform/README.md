@@ -8,6 +8,7 @@ Sets up infrastructure necessary for picInsight app.
   - Processed bucket
 - Lambda function
 - IAM role
+  - IAM Policy
 
 ## TODOs:
 - [ ] Cognito?
