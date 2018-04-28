@@ -55,7 +55,7 @@ resource "aws_iam_role_policy" "picInsight_iam_role_policy" {
     },
     {
       "Action": [
-        "rekognition:DetectLabels"
+        "rekognition:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
