@@ -11,8 +11,11 @@ install:
   - pip install -r deployment/picinsight-lambda/requirements-test.txt
 
 script:
+  - npm install
+
   - cd deployment/terraform/
   - terraform init && terraform validate
+
   - cd ../picinsight-lambda
   - coverage run tests.py
 

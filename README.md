@@ -22,7 +22,10 @@ React-Native app that allows one to classify images
 - [ ] Unit tests
 	- https://facebook.github.io/jest/docs/en/tutorial-react-native.html
 - [ ] Update: https://github.com/scottx611x/final-project-scottx611x
-- [ ] What should this app even do?
+
+### Running the app:
+- `npm install`
+- Proceed to open project w/ Expo XDE
 
 
 ### Deployment:

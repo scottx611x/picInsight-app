@@ -3,3 +3,7 @@ terraform.tfstate*
 lambda.zip
 deployment/picinsight-lambda/**/
 six.py
+node_modules/**/*
+.expo/*
+npm-debug.*
+package-lock.json
