@@ -10,9 +10,7 @@ Sets up infrastructure necessary for picInsight app.
   - S3 bucket upload Lambda trigger
 - IAM role
   - IAM Policy
-
-## TODOs:
-- [ ] Cognito?
+- Cognito Identity Pool
 
 ## Getting started
 ```bash
