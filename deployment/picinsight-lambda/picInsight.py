@@ -17,7 +17,9 @@ class RekognitionAggregator(object):
             }
         }
         self.processed_bucket = "pic-insight-processed"
-        self.result_object_key = "{}-results.json".format(uploaded_object_key)
+        self.result_object_key = "{}.json".format(
+            uploaded_object_key.split(".")[0]
+        )
 
         self.image_info = self._get_image_info()
 

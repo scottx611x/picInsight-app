@@ -1,5 +1,7 @@
-import unittest
+import uuid
+
 import mock
+import unittest
 
 from picInsight import RekognitionAggregator, lambda_handler
 
@@ -42,8 +44,10 @@ class RekognitionAggregatorTests(unittest.TestCase):
         self.rekognition_mock.start()
         self.s3_mock.start()
 
+        self.image_uuid = uuid.uuid4()
+        self.uploaded_image_key = "{}.jpg".format(self.image_uuid)
         self.s3_event = {
-            "object": {"key": "test.jpg"},
+            "object": {"key": self.uploaded_image_key},
             "bucket": {"name": "test-upload"}
         }
 
@@ -75,6 +79,27 @@ class RekognitionAggregatorTests(unittest.TestCase):
         }
         lambda_handler(test_event, None)
 
+    def test_result_object_key(self):
+        self.assertEqual(
+            self.r_aggregator.result_object_key,
+            "{}.json".format(self.image_uuid)
+        )
 
+    def test_uploaded_image(self):
+        self.assertEqual(
+            self.r_aggregator.uploaded_image,
+            {
+                "S3Object": {
+                    "Bucket": self.s3_event['bucket']['name'],
+                    "Name": self.uploaded_image_key,
+                }
+            }
+        )
+
+    def test_processed_bucket(self):
+        self.assertEqual(
+            self.r_aggregator.processed_bucket,
+            "pic-insight-processed"
+        )
 if __name__ == '__main__':
     unittest.main()
