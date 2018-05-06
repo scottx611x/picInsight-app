@@ -1,5 +1,24 @@
 # picInsight-app [![Build Status](https://travis-ci.org/scottx611x/picInsight-app.svg?branch=master)](https://travis-ci.org/scottx611x/picInsight-app)
-React-Native app that allows one to classify images
+React-Native app that allows one to classify images through the use of the [AWS Rekognition API](https://aws.amazon.com/rekognition/)
+
+### Pre-reqs:
+- npm
+- terraform
+- Expo XDE
+
+### Deployment:
+- picInsight require some external infrastructure who's deployment in handled by: [terraform](https://www.terraform.io)
+- Follow [these instructions](https://github.com/scottx611x/picInsight-app/blob/master/deployment/terraform/README.md) to get started with infrastructure deployment (or just continue on below)
+
+### Running the app:
+- `cd deployment/terraform/`
+- `terraform init && terraform apply`
+- `cd ../../`
+- `npm install`
+- Proceed to open project w/ Expo XDE
+
+![may-06-2018 13-17-46](https://user-images.githubusercontent.com/5629547/39675943-f07b7022-512f-11e8-96bf-e89849ef5abf.gif)
+
 
 ### App Requirements:
 - Must use [`redux`](https://github.com/reactjs/react-redux)
@@ -8,26 +27,15 @@ React-Native app that allows one to classify images
 	- `Reducers` listen for actions. When it hears that an action has been sent to it, it updates the state.
 	- `The Store` holds the Redux state and allows access and modifications to it. It’s the middleman between actions and reducers.
 
-- Must make at least one network call
-- Must have at least one stack navigator
-- Must have at least one tab navigator
-- Must be at least as large in scope as the previous projects
+- [x] Must make at least one network call
+- [x] Must have at least one stack navigator
+- [x] Must have at least one tab navigator
+- [x] Must be at least as large in scope as the previous projects
 
 ### TO-DO:
-- [ ] CI/CD
-	- https://medium.com/react-native-training/setup-continuous-integration-with-react-native-50ad2f6145f4
-	- https://jtway.co/the-simplest-way-to-automate-delivery-of-your-react-native-application-f37f2c71eb1d
-	  - https://fabric.io/kits?show_signup=true
-	- https://hanno.co/blog/bitrise-deployment-workflow-react-native/
-- [ ] Unit tests
-	- https://facebook.github.io/jest/docs/en/tutorial-react-native.html
+- [ ] Implement redux
+- [ ] Display Rekognition results:
+  - [ ] Image w/ bounding boxes drawn (if face(s) detected)
+  - [ ] Wikipedia links for most specific labels
+  - [ ] Raw Json data
 - [ ] Update: https://github.com/scottx611x/final-project-scottx611x
-
-### Running the app:
-- `npm install`
-- Proceed to open project w/ Expo XDE
-
-
-### Deployment:
-- picInsight require some external infrastructure who's deployment in handled by: [terraform](https://www.terraform.io)
-- Follow [these instructions](https://github.com/scottx611x/picInsight-app/blob/master/deployment/terraform/README.md) to get started with infrastructure deployment
