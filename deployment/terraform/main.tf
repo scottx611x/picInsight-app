@@ -25,4 +25,15 @@ module "cognito" {
   region = "${var.region}"
   picInsight_iam_role_arn = "${module.iam.picInsight_iam_role_arn}"
 }
+
+resource "local_file" "aws_data" {
+  filename = "../../aws_data.json"
+  content  = <<EOF
+{
+  "identityPoolId": "${module.cognito.picInsight_identity_pool_id}", 
+  "region": "${var.region}", 
+  "uploadBucket": "${module.s3.upload_bucket}"
+}
+EOF
+
 }
