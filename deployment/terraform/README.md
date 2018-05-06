@@ -6,7 +6,7 @@ Sets up infrastructure necessary for picInsight app.
 - S3 buckets
   - Upload bucket
   - Processed bucket
-- Lambda function
+- [Lambda function](https://github.com/scottx611x/picInsight-app/tree/master/deployment/picinsight-lambda)
   - S3 bucket upload Lambda trigger
 - IAM role
   - IAM Policy
