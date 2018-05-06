@@ -27,6 +27,13 @@ resource "aws_iam_role" "picInsight_iam_role" {
       },
       "Effect": "Allow",
       "Sid": "AllowRekognitionAccess"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "cognito-identity.amazonaws.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity"
     }
   ]
 }
@@ -56,6 +63,13 @@ resource "aws_iam_role_policy" "picInsight_iam_role_policy" {
     {
       "Action": [
         "rekognition:*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    },
+    {
+      "Action": [
+        "cognito-identity:*"
       ],
       "Effect": "Allow",
       "Resource": "*"

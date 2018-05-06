@@ -7,3 +7,4 @@ node_modules/**/*
 .expo/*
 npm-debug.*
 package-lock.json
+aws_data.json

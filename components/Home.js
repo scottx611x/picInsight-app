@@ -1,6 +1,4 @@
 import React from 'react';
-import { OMDB_API_URL } from '../App';
-import { OMDBResults } from '.';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -21,23 +19,17 @@ export default class Home extends React.Component {
     super(props);
     this.state = {
       searchQuery: "",
-      takePictureTitle: "Take a Picture",
+      uploadPictureTitle: "Upload a Picture",
       viewResultsTitle: "View Results"
     };
   }
   
-  TakePicture = () => {
-    this.props.navigation.navigate(
-        'TakePicture', 
-        {data: "TakePicture"}
-      );
+  UploadPicture = () => {
+    this.props.navigation.navigate('UploadPicture');
   }
 
   ViewResults = () => {
-    this.props.navigation.navigate(
-        'ViewResults', 
-        {data: "ViewResults"}
-      );
+    this.props.navigation.navigate('ViewResults');
   }
   
   render () {
@@ -47,8 +39,8 @@ export default class Home extends React.Component {
         <Text style={styles.title}>📷 🧠</Text>
         <Button
           color="blue"
-          onPress={ this.TakePicture }
-          title={ this.state.takePictureTitle }>
+          onPress={ this.UploadPicture }
+          title={ this.state.uploadPictureTitle }>
         </Button>
         <Button
           color="green"
