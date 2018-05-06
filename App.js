@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, TakePicture, ViewResults } from './components'
+import { Home, UploadPicture, ViewResults } from './components'
 import { createStackNavigator } from 'react-navigation';
 
 export default createStackNavigator(
@@ -10,10 +10,10 @@ export default createStackNavigator(
         title: 'Home'
       }
     },
-    TakePicture: {
-      screen: TakePicture,
+    UploadPicture: {
+      screen: UploadPicture,
       navigationOptions: ({ navigation }) => ({
-        title: `Take a Picture`
+        title: `Upload a Picture`
       })
     },
     ViewResults: {
