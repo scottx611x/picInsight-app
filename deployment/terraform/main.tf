@@ -19,3 +19,10 @@ module "lambda" {
   upload_bucket_id = "${module.s3.upload_bucket_id}"
   upload_bucket_arn = "${module.s3.upload_bucket_arn}"
 }
+
+module "cognito" {
+  source = "./modules/cognito"
+  region = "${var.region}"
+  picInsight_iam_role_arn = "${module.iam.picInsight_iam_role_arn}"
+}
+}
