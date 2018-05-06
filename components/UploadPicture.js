@@ -17,10 +17,10 @@ export default class ImageUploader extends React.Component {
 
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Button
+        {!image && <Button
           title="Pick an image from camera roll"
           onPress={this._pickImage}
-        />
+        />}
         {image &&
           <Image source={{ uri: image }} style={{ width: 400, height: 400 }} />}
       </View>
