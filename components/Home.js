@@ -1,6 +1,4 @@
 import React from 'react';
-import { OMDB_API_URL } from '../App';
-import { OMDBResults } from '.';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 const styles = StyleSheet.create({
