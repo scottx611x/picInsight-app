@@ -14,15 +14,10 @@ const styles = StyleSheet.create({
   }
 });
 
+const uploadPictureTitle = "Upload a Picture"
+const viewPicturesTitle = "View Uploaded Pictures"
+
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      uploadPictureTitle: "Upload a Picture",
-      viewPicturesTitle: "View Uploaded Pictures"
-    };
-  }
-  
   UploadPicture = () => {
     this.props.navigation.navigate('UploadPicture');
   }
@@ -39,12 +34,12 @@ export default class Home extends React.Component {
         <Button
           color="blue"
           onPress={ this.UploadPicture }
-          title={ this.state.uploadPictureTitle }>
+          title={ uploadPictureTitle }>
         </Button>
         <Button
           color="green"
           onPress={ this.ViewPictures }
-          title={ this.state.viewPicturesTitle }>
+          title={ viewPicturesTitle }>
         </Button>
       </View>
     );
