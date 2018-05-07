@@ -1,3 +1,4 @@
 export Home from './Home'
-export ViewResults from './ViewResults'
+export ViewPictures from './ViewPictures'
+export ViewPictureDetail from './ViewPictureDetail'
 export UploadPicture from './UploadPicture'

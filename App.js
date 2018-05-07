@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, UploadPicture, ViewResults } from './components'
+import { Home, UploadPicture, ViewPictures, ViewPictureDetail } from './components'
 import { createStackNavigator } from 'react-navigation';
 import Amplify from "aws-amplify";
 import awsConfig from './aws_data.json';
@@ -29,10 +29,16 @@ export default createStackNavigator(
         title: `Upload a Picture`
       })
     },
-    ViewResults: {
-      screen: ViewResults,
+    ViewPictures: {
+      screen: ViewPictures,
       navigationOptions: ({ navigation }) => ({
-        title: `View Results`
+        title: `View Pictures`
+      })
+    },
+    ViewPictureDetail: {
+      screen: ViewPictureDetail,
+      navigationOptions: ({ navigation }) => ({
+        title: `View Picture Detail`
       })
     }
   },

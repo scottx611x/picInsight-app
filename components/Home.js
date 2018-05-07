@@ -18,9 +18,8 @@ export default class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchQuery: "",
       uploadPictureTitle: "Upload a Picture",
-      viewResultsTitle: "View Results"
+      viewPicturesTitle: "View Uploaded Pictures"
     };
   }
   
@@ -28,8 +27,8 @@ export default class Home extends React.Component {
     this.props.navigation.navigate('UploadPicture');
   }
 
-  ViewResults = () => {
-    this.props.navigation.navigate('ViewResults');
+  ViewPictures = () => {
+    this.props.navigation.navigate('ViewPictures');
   }
   
   render () {
@@ -44,8 +43,8 @@ export default class Home extends React.Component {
         </Button>
         <Button
           color="green"
-          onPress={ this.ViewResults }
-          title={ this.state.viewResultsTitle }>
+          onPress={ this.ViewPictures }
+          title={ this.state.viewPicturesTitle }>
         </Button>
       </View>
     );
