@@ -50,7 +50,9 @@ resource "aws_iam_role_policy" "picInsight_iam_role_policy" {
   "Statement": [
     {
       "Action": [
-        "s3:PutObject", "s3:GetObject"
+        "s3:PutObject", 
+        "s3:GetObject",
+        "s3:ListBucket"
       ],
       "Effect": "Allow",
       "Resource": [
