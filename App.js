@@ -15,10 +15,6 @@ Amplify.configure({
     }
 });
 
-Auth.currentCredentials()
-.then(data => {console.log(data)})
-.catch(e => {console.log(e)});
-
 export default createStackNavigator(
   {
     Home: {
