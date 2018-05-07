@@ -1,7 +1,7 @@
 import React from 'react';
 import { Home, UploadPicture, ViewResults } from './components'
 import { createStackNavigator } from 'react-navigation';
-import Amplify, { Auth } from "aws-amplify";
+import Amplify from "aws-amplify";
 import awsConfig from './aws_data.json';
 
 Amplify.configure({
