@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { createStore } from 'redux';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -27,21 +29,20 @@ export default class Home extends React.Component {
   }
   
   render () {
-    const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>📷 🧠</Text>
-        <Button
-          color="blue"
-          onPress={ this.UploadPicture }
-          title={ uploadPictureTitle }>
-        </Button>
-        <Button
-          color="green"
-          onPress={ this.ViewPictures }
-          title={ viewPicturesTitle }>
-        </Button>
-      </View>
+        <View style={styles.container}>
+          <Text style={styles.title}>📷 🧠</Text>
+          <Button
+            color="blue"
+            onPress={ this.UploadPicture }
+            title={ uploadPictureTitle }>
+          </Button>
+          <Button
+            color="green"
+            onPress={ this.ViewPictures }
+            title={ viewPicturesTitle }>
+          </Button>
+        </View>
     );
   }
 }
