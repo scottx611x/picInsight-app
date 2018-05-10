@@ -18,7 +18,7 @@ resource "aws_lambda_function" "picInsight_Rekognition" {
 
 // Trigger Lambda function invocation when our upload bucket gets a new object
 resource "aws_s3_bucket_notification" "upload_bucket_trigger" {
-  bucket = "${var.upload_bucket_id}"
+  bucket = "${var.bucket_id}"
 
   lambda_function {
     lambda_function_arn = "${aws_lambda_function.picInsight_Rekognition.arn}"
@@ -32,5 +32,5 @@ resource "aws_lambda_permission" "allow_bucket" {
   action        = "lambda:InvokeFunction"
   function_name = "${aws_lambda_function.picInsight_Rekognition.arn}"
   principal     = "s3.amazonaws.com"
-  source_arn    = "${var.upload_bucket_arn}"
+  source_arn    = "${var.bucket_arn}"
 }

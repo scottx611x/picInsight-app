@@ -5,9 +5,14 @@
     "expo": "^25.0.0",
     "react": "16.2.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
+    "react-native-super-grid": "2.3.1",
     "react-navigation": "2.0.0-rc.1",
     "aws-amplify": "0.3.3",
+    "aws-amplify-react": "0.1.43",
+    "aws-amplify-react-native": "0.2.9",
     "uuid": "3.2.1",
-    "buffer": "5.1.0"
+    "buffer": "5.1.0",
+    "redux": "4.0.0",
+    "react-redux": "5.0.7"
   }
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
+import { createStore } from 'redux';
+
 
 const styles = StyleSheet.create({
   container: {
@@ -14,40 +16,33 @@ const styles = StyleSheet.create({
   }
 });
 
+const uploadPictureTitle = "Upload a Picture"
+const viewPicturesTitle = "View Uploaded Pictures"
+
 export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchQuery: "",
-      uploadPictureTitle: "Upload a Picture",
-      viewResultsTitle: "View Results"
-    };
-  }
-  
   UploadPicture = () => {
     this.props.navigation.navigate('UploadPicture');
   }
 
-  ViewResults = () => {
-    this.props.navigation.navigate('ViewResults');
+  ViewPictures = () => {
+    this.props.navigation.navigate('ViewPictures');
   }
   
   render () {
-    const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>📷 🧠</Text>
-        <Button
-          color="blue"
-          onPress={ this.UploadPicture }
-          title={ this.state.uploadPictureTitle }>
-        </Button>
-        <Button
-          color="green"
-          onPress={ this.ViewResults }
-          title={ this.state.viewResultsTitle }>
-        </Button>
-      </View>
+        <View style={styles.container}>
+          <Text style={styles.title}>📷 🧠</Text>
+          <Button
+            color="blue"
+            onPress={ this.UploadPicture }
+            title={ uploadPictureTitle }>
+          </Button>
+          <Button
+            color="green"
+            onPress={ this.ViewPictures }
+            title={ viewPicturesTitle }>
+          </Button>
+        </View>
     );
   }
 }

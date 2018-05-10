@@ -10,13 +10,14 @@ class RekognitionAggregator(object):
 
     def __init__(self, s3_event):
         uploaded_object_key = s3_event['object']['key']
+        self.bucket = s3_event['bucket']['name']
         self.uploaded_image = {
             "S3Object": {
-                "Bucket": s3_event['bucket']['name'],
+                "Bucket": self.bucket,
                 "Name": uploaded_object_key,
             }
         }
-        self.processed_bucket = "pic-insight-processed"
+
         self.result_object_key = "{}.json".format(
             uploaded_object_key.split(".")[0]
         )
@@ -31,9 +32,9 @@ class RekognitionAggregator(object):
 
     def upload_results(self):
         self.s3_client.put_object(
-            Key=self.result_object_key,
+            Key="public/processed/{}".format(self.result_object_key),
             Body=self._results_to_bytes(),
-            Bucket=self.processed_bucket
+            Bucket=self.bucket
         )
 
     def _get_image_info(self):

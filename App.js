@@ -1,7 +1,12 @@
 import React from 'react';
-import { Home, UploadPicture, ViewResults } from './components'
-import { createStackNavigator } from 'react-navigation';
-import Amplify, { Auth } from "aws-amplify";
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import AppReducer from './reducers/AppReducer';
+
+import AppWithNavigationState from './components/AppNavigator';
+
+
+import Amplify from "aws-amplify";
 import awsConfig from './aws_data.json';
 
 Amplify.configure({
@@ -10,37 +15,20 @@ Amplify.configure({
       region: awsConfig.region
     },
     Storage: {
-      bucket: awsConfig.uploadBucket,
+      bucket: awsConfig.bucket,
       region: awsConfig.region
     }
 });
 
-Auth.currentCredentials()
-.then(data => {console.log(data)})
-.catch(e => {console.log(e)});
+export default class App extends React.Component {
+  store = createStore(AppReducer);
 
-export default createStackNavigator(
-  {
-    Home: {
-      screen: Home,
-      navigationOptions: {
-        title: 'Home'
-      }
-    },
-    UploadPicture: {
-      screen: UploadPicture,
-      navigationOptions: ({ navigation }) => ({
-        title: `Upload a Picture`
-      })
-    },
-    ViewResults: {
-      screen: ViewResults,
-      navigationOptions: ({ navigation }) => ({
-        title: `View Results`
-      })
-    }
-  },
-  {
-    initialRouteName: 'Home',
+  render() {
+    return (
+      <Provider store={this.store}>
+        <AppWithNavigationState />
+      </Provider>
+    );
   }
-);
+}
+

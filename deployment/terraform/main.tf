@@ -9,15 +9,14 @@ module "s3" {
 
 module "iam" {
   source  = "./modules/iam" 
-  processed_bucket_arn = "${module.s3.processed_bucket_arn}"
-  upload_bucket_arn = "${module.s3.upload_bucket_arn}"
+  bucket_arn = "${module.s3.bucket_arn}"
 }
 
 module "lambda" {
   source  = "./modules/lambda"
   picInsight_iam_role_arn = "${module.iam.picInsight_iam_role_arn}"
-  upload_bucket_id = "${module.s3.upload_bucket_id}"
-  upload_bucket_arn = "${module.s3.upload_bucket_arn}"
+  bucket_id = "${module.s3.bucket_id}"
+  bucket_arn = "${module.s3.bucket_arn}"
 }
 
 module "cognito" {
@@ -32,7 +31,7 @@ resource "local_file" "aws_data" {
 {
   "identityPoolId": "${module.cognito.picInsight_identity_pool_id}", 
   "region": "${var.region}", 
-  "uploadBucket": "${module.s3.upload_bucket}"
+  "bucket": "${module.s3.upload_bucket}"
 }
 EOF
 

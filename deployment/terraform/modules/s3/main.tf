@@ -1,13 +1,6 @@
-resource "aws_s3_bucket" "picInsight_upload" {
-  bucket = "pic-insight-upload"
+resource "aws_s3_bucket" "picInsight" {
+  bucket = "pic-insight"
   tags {
-    Name = "picInsight-upload"
-  }
-}
-
-resource "aws_s3_bucket" "picInsight_processed" {
-  bucket = "pic-insight-processed"
-  tags {
-    Name = "picInsight-processed"
+    Name = "picInsight"
   }
 }
