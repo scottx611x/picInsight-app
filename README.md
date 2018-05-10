@@ -21,12 +21,7 @@ React-Native app that allows one to classify images through the use of the [AWS 
 
 
 ### App Requirements:
-- Must use [`redux`](https://github.com/reactjs/react-redux)
-	- https://github.com/jarretmoses/react-native-redux-example
-	- `Actions` can be sent when a user presses a button, load an app, etc. They can contain information that you want to add to the state.
-	- `Reducers` listen for actions. When it hears that an action has been sent to it, it updates the state.
-	- `The Store` holds the Redux state and allows access and modifications to it. It’s the middleman between actions and reducers.
-
+- [x] Must use [`redux`](https://github.com/reactjs/react-redux)
 - [x] Must make at least one network call
 - [x] Must have at least one stack navigator
 - [x] Must have at least one tab navigator
