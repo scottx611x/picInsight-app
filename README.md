@@ -33,9 +33,9 @@ React-Native app that allows one to classify images through the use of the [AWS 
 - [x] Must be at least as large in scope as the previous projects
 
 ### TO-DO:
-- [ ] Implement redux
-- [ ] Display Rekognition results:
+- [x] Implement redux
+- [x] Display Rekognition results:
   - [ ] Image w/ bounding boxes drawn (if face(s) detected)
   - [ ] Wikipedia links for most specific labels
-  - [ ] Raw Json data
-- [ ] Update: https://github.com/scottx611x/final-project-scottx611x
+  - [x] Raw Json data
+- [x] Update: https://github.com/scottx611x/final-project-scottx611x
