@@ -17,7 +17,7 @@ React-Native app that allows one to classify images through the use of the [AWS 
 - `npm install`
 - Proceed to open project w/ Expo XDE
 
-![may-06-2018 13-17-46](https://user-images.githubusercontent.com/5629547/39675943-f07b7022-512f-11e8-96bf-e89849ef5abf.gif)
+![may-10-2018 01-04-57](https://user-images.githubusercontent.com/5629547/39853114-4a4e5806-53ee-11e8-9cd2-1582c82060b9.gif)
 
 
 ### App Requirements:
