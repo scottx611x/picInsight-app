@@ -46,9 +46,10 @@ class RekognitionAggregatorTests(unittest.TestCase):
 
         self.image_uuid = uuid.uuid4()
         self.uploaded_image_key = "{}.jpg".format(self.image_uuid)
+        self.test_bucket_name = "test-bucket"
         self.s3_event = {
             "object": {"key": self.uploaded_image_key},
-            "bucket": {"name": "test-upload"}
+            "bucket": {"name": self.test_bucket_name}
         }
 
         with mock.patch("boto3.client"):
@@ -96,10 +97,11 @@ class RekognitionAggregatorTests(unittest.TestCase):
             }
         )
 
-    def test_processed_bucket(self):
+    def test_bucket(self):
         self.assertEqual(
-            self.r_aggregator.processed_bucket,
-            "pic-insight-processed"
+            self.r_aggregator.bucket,
+            self.test_bucket_name
+            
         )
 if __name__ == '__main__':
     unittest.main()
