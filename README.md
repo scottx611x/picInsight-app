@@ -7,7 +7,7 @@ React-Native app that allows one to classify images through the use of the [AWS 
 - Expo XDE
 
 ### Deployment:
-- picInsight require some external infrastructure who's deployment in handled by: [terraform](https://www.terraform.io)
+- picInsight require some external infrastructure who's deployment is handled by: [terraform](https://www.terraform.io)
 - Follow [these instructions](https://github.com/scottx611x/picInsight-app/blob/master/deployment/terraform/README.md) to get started with infrastructure deployment (or just continue on below)
 
 ### Running the app:
